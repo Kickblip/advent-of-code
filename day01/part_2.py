@@ -1,6 +1,6 @@
 import os
 
-with open(f'{os.getcwd()}/day_1/input.txt', 'r') as f:
+with open(f'{os.getcwd()}/day01/input.txt', 'r') as f:
     data = f.read().splitlines()
 
     calibration_values = []
@@ -17,7 +17,7 @@ with open(f'{os.getcwd()}/day_1/input.txt', 'r') as f:
         buffer = ""
         i = 0
         while i < len(line):
-            if str(line[i]).isnumeric():
+            if line[i].isnumeric():
                 numbers.append(line[i])
                 i += 1
                 continue
