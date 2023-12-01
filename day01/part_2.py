@@ -5,12 +5,12 @@ with open(f'{os.getcwd()}/day_1/input.txt', 'r') as f:
 
     calibration_values = []
 
-    for line in data:
+    number_words = {
+        "one": "1", "two": "2", "three": "3", "four": "4",
+        "five": "5", "six": "6", "seven": "7", "eight": "8", "nine": "9"
+    }
 
-        number_words = {
-            "one": "1", "two": "2", "three": "3", "four": "4",
-            "five": "5", "six": "6", "seven": "7", "eight": "8", "nine": "9"
-        }
+    for line in data:
 
         # print(f'line: {line}')
         numbers = []
@@ -37,3 +37,6 @@ with open(f'{os.getcwd()}/day_1/input.txt', 'r') as f:
 
     # print(calibration_values)
     print(sum(calibration_values))
+
+
+# 54087
