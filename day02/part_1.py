@@ -22,19 +22,17 @@ for line in data:
                 'count': count
             }
 
-    for game_id, game in games.items():
-        valid = True
+for game_id, game in games.items():
+    valid = True
 
-        for set_id, set in game.items():
+    for set_id, set in game.items():
 
-            if (set['color'] == 'red' and int(set['count']) > 12) or (set['color'] == 'green' and int(set['count']) > 13) or (set['color'] == 'blue' and int(set['count']) > 14):
-                # print(f"Set {set_id} in Game {game_id} is invalid")
-                valid = False
-                break
+        if (set['color'] == 'red' and int(set['count']) > 12) or (set['color'] == 'green' and int(set['count']) > 13) or (set['color'] == 'blue' and int(set['count']) > 14):
+            # print(f"Set {set_id} in Game {game_id} is invalid")
+            valid = False
+            break
 
-        if valid:
-            valid_ids.append(int(game_id))
-
-valid_ids = list(dict.fromkeys(valid_ids))
+    if valid:
+        valid_ids.append(int(game_id))
 
 print(sum(valid_ids))
