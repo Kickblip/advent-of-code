@@ -2,8 +2,7 @@ import os
 
 with open(f'{os.getcwd()}/day02/input.txt', 'r') as f:
     data = f.read().splitlines()
-    games = {}
-    powers = {}
+    games, powers = {}, {}
 
 for line in data:
     game, sets = line.split(': ')
