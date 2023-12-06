@@ -116,8 +116,11 @@ def part2(seed_intervals: IntervalList, interval_lists: List[IntervalList]):
 def solution(input):
     seeds, seed_intervals, interval_lists = parse_input(input)
 
+    part1_ans = part1(seeds, interval_lists)
+    print(f'Part 1 Answer: {part1_ans}')
+
     part2_ans = part2(seed_intervals, interval_lists)
-    print(f'Answer: {part2_ans}')
+    print(f'Part 2 Answer: {part2_ans}')
 
 
 with open(f'{os.getcwd()}/day05/input.txt', 'r') as f:
