@@ -1,7 +1,7 @@
 import os
 import re
 
-with open(f'{os.getcwd()}/day03/input.txt', 'r') as f:
+with open(f'{os.getcwd()}/2023/Python/day03/input.txt', 'r') as f:
     data = f.read().splitlines()
 
 num_arr = []

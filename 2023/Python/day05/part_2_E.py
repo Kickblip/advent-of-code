@@ -123,7 +123,7 @@ def solution(input):
     print(f'Part 2 Answer: {part2_ans}')
 
 
-with open(f'{os.getcwd()}/day05/input.txt', 'r') as f:
+with open(f'{os.getcwd()}/2023/Python/day05/input.txt', 'r') as f:
     data = f.read()
 
 solution(data)

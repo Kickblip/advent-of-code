@@ -1,6 +1,6 @@
 import os
 
-with open(f'{os.getcwd()}/day05/input.txt', 'r') as f:
+with open(f'{os.getcwd()}/2023/Python/day05/input.txt', 'r') as f:
     data = f.read().splitlines()
 
 map = {}

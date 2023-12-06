@@ -1,6 +1,6 @@
 import os
 
-with open(f'{os.getcwd()}/day02/input.txt', 'r') as f:
+with open(f'{os.getcwd()}/2023/Python/day02/input.txt', 'r') as f:
     games = {
         game.split(' ')[1]: {
             f"{set_index}-{cube_index}": {'color': color, 'count': count}

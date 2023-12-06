@@ -1,6 +1,6 @@
 import os
 
-with open(f'{os.getcwd()}/day01/input.txt', 'r') as f:
+with open(f'{os.getcwd()}/2023/Python/day01/input.txt', 'r') as f:
     data = f.read().splitlines()
 
     calibration_values = []

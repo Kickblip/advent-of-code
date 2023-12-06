@@ -1,6 +1,6 @@
 import os
 
-with open(f'{os.getcwd()}/day02/input.txt', 'r') as f:
+with open(f'{os.getcwd()}/2023/Python/day02/input.txt', 'r') as f:
     data = f.read().splitlines()
     games, valid_ids = {}, []
 
