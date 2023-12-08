@@ -5,7 +5,27 @@ with open(f'{os.getcwd()}/2023/Python/day07/input.txt', 'r') as f:
 
 data = [line.split(' ') for line in data]
 
-print(data)
+
+def handle_joker(hand):
+    possibilities = '23456789TQKA'
+
+    top_pick = ['22222', 0]
+    for p in possibilities:
+
+        test_hand = list(map(lambda x: x.replace('J', p), hand))
+
+        rank = assign_type(test_hand)
+
+        if rank > top_pick[1]:
+            top_pick = [test_hand, rank]
+        elif rank == top_pick[1]:
+            for idx, char in enumerate(test_hand):
+                if order.index(char) > order.index(top_pick[0][idx]):
+                    top_pick = [test_hand, rank]
+
+    new_hand = ''.join(top_pick[0])
+
+    return new_hand
 
 
 def assign_type(hand):
@@ -15,10 +35,6 @@ def assign_type(hand):
             map[char] = 1
         else:
             map[char] += 1
-
-    print(hand)
-    print(map)
-    print(f'length:{len(map)}')
 
     if len(map) == 1:
         return 6  # five of a kind
@@ -36,36 +52,30 @@ def assign_type(hand):
         return 0  # high card
 
 
-order = '23456789TJQKA'
+order = 'J23456789TQKA'
 
 
 def compare_hands(hand1, hand2):
-    type1 = assign_type(hand1)
-    type2 = assign_type(hand2)
 
-    # print(hand1[0], hand2[0])
-    # print(type1, type2)
+    new_hand1, new_hand2 = '', ''
+
+    if 'J' in hand1:
+        new_hand1 = handle_joker(hand1)
+    if 'J' in hand2:
+        new_hand2 = handle_joker(hand2)
+    type1 = assign_type(new_hand1 if new_hand1 else hand1)
+    type2 = assign_type(new_hand2 if new_hand2 else hand2)
 
     if type1 > type2:
-        print(f"winning hand: {hand1} with type {type1}")
         return hand1
     elif type1 < type2:
-        print(f"winning hand: {hand2} with type {type2}")
         return hand2
     else:  # compare the cards one char at a time
-        print('TRIGGERED')
-        print(f"{hand1} TYPE: {type1}")
-        print(f"{hand2} TYPE: {type2}")
-        print('--------------')
         for idx, char in enumerate(hand1):
-            print(order.index(char), order.index(hand2[idx]))
             if order.index(char) > order.index(hand2[idx]):
-                print(f"winning hand: {hand1} with type {type1}")
                 return hand1
             elif order.index(char) < order.index(hand2[idx]):
-                print(f"winning hand: {hand2} with type {type2}")
                 return hand2
-        print('NO WINNER SENT')
 
 
 def bubble_sort(arr):
@@ -83,9 +93,6 @@ def bubble_sort(arr):
 
 
 bubble_sort(data)
-
-print()
-print(data)
 
 ans = 0
 for idx, hand in enumerate(data):
